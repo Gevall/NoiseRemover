@@ -14,12 +14,7 @@ namespace NoiseRemover.Logic
 {
     internal class LoadData : ILoadData
     {
-        public static Data data;
 
-        /// <summary>
-        /// Диалог на открытие файла
-        /// </summary>
-        /// <returns>Путь к файлу</returns>
         public string OpenFile()
         {
             var path = string.Empty;
@@ -38,15 +33,18 @@ namespace NoiseRemover.Logic
 
         public Data LoadDataFromFile(string path)
         {
-            if (String.IsNullOrEmpty(path))
+            Data data = new();
+            if (!String.IsNullOrEmpty(path))
             {
-                //MessageBox.Show("Ошибка", "Не выбран файл!", MessageBoxButton.OK);
-            }
-            else
-            {
-                string json = File.ReadAllText(path);
-                data = JsonConvert.DeserializeObject<Data>(json);
-                //MessageBox.Show("Успех", "Файл успешно открыт!", MessageBoxButton.OK, MessageBoxImage.Information);
+                try 
+                { 
+                    string json = File.ReadAllText(path);
+                    data = JsonConvert.DeserializeObject<Data>(json);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ошибка!", ex.Message, MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
             return data;
         }

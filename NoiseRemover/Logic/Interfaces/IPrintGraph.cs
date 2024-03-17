@@ -9,6 +9,6 @@ namespace NoiseRemover.Logic.Interfaces
 {
     internal interface IPrintGraph
     {
-        public void PrintGraph(Data data);
+        public void PrintedGraph(MainWindow window);
     }
 }

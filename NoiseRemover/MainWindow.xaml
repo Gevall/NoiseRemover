@@ -6,7 +6,7 @@
         xmlns:ScottPlot="clr-namespace:ScottPlot.WPF;assembly=ScottPlot.WPF"
         xmlns:local="clr-namespace:NoiseRemover"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Noise Remover 0.1.beta" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="19*"/>
@@ -16,10 +16,9 @@
                 HorizontalAlignment="Left" 
                 Margin="35,35,0,0" 
                 VerticalAlignment="Top" 
-                Width="97" Click="Button_Click"/>
-        <Frame Content="Frame"/>
-        <StackPanel/>
-        <ScottPlot:WpfPlot x:Name="WpfPlot1" Margin="10,21,10,0" Height="375" VerticalAlignment="Top" Grid.Column="1" />
+                Width="97" 
+                Click="LoadDataFromJson"/>
+        <ScottPlot:WpfPlot x:Name="WpfGraph" Margin="10,21,10,0" Height="375" VerticalAlignment="Top" Grid.Column="1" />
 
     </Grid>
 </Window>
